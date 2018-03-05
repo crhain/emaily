@@ -8,12 +8,17 @@ module.exports = (app) => {
         })
     );
     
-    app.get('/auth/google/callback', passport.authenticate('google'));
+    app.get(
+        '/auth/google/callback', 
+        passport.authenticate('google'), 
+        (req, res) => {
+            res.redirect('/surveys');
+        }
+    );
 
     app.get('/api/logout', (req, res) => {
-        req.logout();
-        //send back user object - temporary for now
-        res.send(req.user);
+        req.logout();       
+        res.redirect('/');
     });
 
     //test route to show current user on req
