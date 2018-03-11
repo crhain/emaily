@@ -27,15 +27,16 @@ app.use(passport.session());
 
 //load models in
 require('./models/User');
+require('./models/Survey');
 
 //load in passport setup
 require('./services/passport');
 
-//load auth routes and pass app to them
-require('./routes/authRoutes')(app);
 
-//load billing routes and pass app to them
+//Load in routes
+require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
     // Express will serve up production assets
