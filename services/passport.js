@@ -6,8 +6,6 @@ const keys = require('../config/keys');
 //pulling users model out of mongoose model instead of exporting it from file
 const User = mongoose.model('users');
 
-
-
 passport.serializeUser((user, done) => {
     done(null, user.id)
 });

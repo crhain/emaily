@@ -1,3 +1,4 @@
+import './Header.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -24,7 +25,7 @@ class Header extends Component {
     render() {               
         return (
             <nav>
-                <div className="nav-wrapper">
+                <div className="nav-wrapper nav-blue">
                 <Link 
                     to={ this.props.auth ? '/surveys' : '/' } 
                     className="left brand-logo"
